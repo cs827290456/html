@@ -1,0 +1,177 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+</head>
+
+ <BODY>
+ <SCRIPT LANGUAGE="JavaScript">
+ <!--
+	var p = new Array();
+	function user(key,name,bdate){
+		this.key = key;
+		this.name = name;
+		this.bdate = bdate;
+		var s = bdate.split("-");
+		this.year = parseInt(s[0]);
+
+		var x = s[1]
+		if(x.substring(0,1) == "0"){			
+			this.month = parseInt(x.substring(1,2));
+		}else{
+			this.month = parseInt(s[1]);
+		}
+
+		x = s[2]
+		if(x.substring(0,1) == "0"){			
+			this.day = parseInt(x.substring(1,2));
+		}else{
+			this.day = parseInt(s[2]);
+		}		
+	}
+
+
+
+	p.push(new user("陈顺","陈顺","1984-05-21"));
+	p.push(new user("王平","王平","1985-08-26"));
+	p.push(new user("妈妈","妈妈","1958-12-17"));
+	p.push(new user("欣蕊","陈欣蕊","2011-07-19"));
+	p.push(new user("姐姐","陈为","1982-08-28"));
+	p.push(new user("奶奶","奶奶","1933-05-01"));
+
+
+	p.push(new user("姐夫","","1981-12-03"));
+	p.push(new user("岳父","","1953-03-26"));
+	p.push(new user("岳母","","1957-08-18"));
+	p.push(new user("王爱","","1987-03-18"));
+    p.push(new user("圆圆","","2012-02-03"));
+
+
+p.push(new user("力叔","","1964-08-20"));
+p.push(new user("谭叔","","1958-08-15"));
+p.push(new user("红叔","","1956-09-13"));
+
+p.push(new user("姑姑","姑姑","1954-04-23"));
+//p.push(new user("姑爷","姑姑","1954-04-23"));
+
+
+	p.push(new user("义芳","王义芳","1983-06-05"));
+	p.push(new user("锦新","彭绵新","1984-07-06"));
+    p.push(new user("婷婷","","2008-12-17"));
+
+	p.push(new user("文昊","王文昊","2006-09-28"));
+	p.push(new user("梓程","王梓程","2013-10-04"));
+
+    p.push(new user("满奶奶","","1938-01-20"));
+   
+
+	p.push(new user("牛舅","牛舅","1964-02-03"));
+	p.push(new user("姨","姨","1954-12-30"));
+
+//------------------------------年份不知
+    p.push(new user("平舅","平舅","1950-02-28"));
+    p.push(new user("姨丫","姨丫","1950-11-27"));
+
+/*
+牛舅 1964.2.3 	
+平   2.28
+细姨 
+姨丫子 11.27	
+*/
+	
+
+window.onload=function(){
+	init();	
+	
+	//alert( parseInt("01") == month)
+	
+	var html = "<table  align='center' border=1><tr>";
+	for (var i = 0; i<= month_day; i++ )
+	{
+		if(i==0){
+			html += "<td align='center'>"+year+"/月</td>"
+		}else{
+			html += "<td align='center'>"+ i +"</td>"
+		}
+	}
+	html+="</tr>"
+
+	for (var m = 1; m<= 12; m++ ){
+		html += "<tr>";
+		for (var i = 0; i<= month_day; i++ )
+		{
+			//与上面的比。。。。
+			var data = "";
+			for(var j=0; j<p.length; j++){
+				if(p[j].month == m && p[j].day==i){
+					if(data!=""){
+						data += "<br>"
+					}
+					data += p[j].key+"<br><font color='#FF0000'><B>" + (year-p[j].year) +"</B></font>岁"
+				}
+			}
+			if(data==""){
+				if(i == 0){
+					data = m+"月"
+				}else{	
+					data = "&nbsp;&nbsp;&nbsp;"
+				}
+			}
+			var color = '#BEBEBE'
+			if(day == i && m == month){
+				color = "#FFCC00";
+			}
+			html += "<td bgcolor='"+color+"'>"+data+"</td>"
+		}
+		html += "</tr>";
+	}
+	html += "</table>";
+	
+	//"当前时间:" +getTime() +
+	document.getElementById("html").innerHTML =  html
+}
+function getTime(){
+	var month_s = month;
+	if(month_s <= 9){
+		month_s = "0"+month
+	}
+	var day_s = day;
+	if(day_s <= 9){
+		day_s = "0"+day
+	}
+	return year+"-" + month_s + "-" + day_s; 
+}
+var year,month,day,month_day;
+function init(){
+   var d = new Date();                           // 创建 Date 对象。
+   year = d.getFullYear();
+   month = d.getMonth() + 1;
+   day = d.getDate(); 
+   month_day = getBmonthDay();
+}
+
+
+function getBmonthDay(){//这个月有多少天
+	return 31;
+}
+
+/*
+//alert(DateDemo())
+function DateDemo(){
+   var d, day, x, s = "今天是: ";
+   var x = new Array("星期日", "星期一", "星期二");
+   var x = x.concat("星期三","星期四", "星期五");
+   var x = x.concat("星期六");
+   d = new Date();
+   day = d.getDay();
+   return(s += x[day]);
+}
+*/
+
+ //-->
+ </SCRIPT>	
+	<div id="html">
+	</div>
+
+ </BODY>
+</HTML>

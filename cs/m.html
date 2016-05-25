@@ -1,0 +1,126 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+</head>
+<body bgcolor="#ffff00" style="font-size: 10px"> 
+	<script>
+	//var j= {x:1}
+	//alert(eval("j.x"))
+//alert(100.23+10.45+100.55)
+//var a = 10.3;
+//alert(a.toFixed(2));
+var title = [["cid","ID"],["money","数值"],["year","时间"],["cdate","时间"],["type","类型"],["name","归属"],["ctype","自转"],["bfb","bfb"],["user","备注"]];  
+		var info = 
+		[			
+			[
+				{cid:'dq-86071540011429823013',money:2.00,year:1,cdate:'2012-12-13',type:'农合',name:'CS',ctype:'no',bfb:0.032},	
+				{cid:'dq-86071540011977292013',money:1.80,year:1,cdate:'2012-12-13',type:'农合',name:'CS',ctype:'ok',bfb:0.032}, 
+				{cid:'dq-86071540011929910013',money:4.00,year:1,cdate:'2012-12-13',type:'农合',name:'MM',ctype:'no',bfb:0.032},
+				{cid:'dq-86071540011816028013',money:3.00,year:1,cdate:'2013-12-02',type:'农合',name:'WP',ctype:'ok',bfb:0.032},
+				{cid:'dq-0303430626002020860',money:4.00,year:3,cdate:'2012-09-26',type:'邮政',name:'WP',ctype:'ok',bfb:0.032},
+				{cid:'dq-0303430626001911729',money:5.00,year:1,cdate:'2013-04-10',type:'邮政',name:'WP',ctype:'ok',bfb:0.032},
+				{cid:'dq-xxx',money:20.60,year:1,cdate:'2012-12-13',type:'工商',name:'CS',ctype:'no',bfb:0.032},
+				{cid:'dq-yyy',money:32.06,year:1,cdate:'2012-12-13',type:'工商',name:'CS',ctype:'no',bfb:0.032}
+			],			 
+			[
+				{cid:'hq-01',money:1.35,type:'工商',name:'CS'},		
+				{cid:'hq-02',money:1.00,type:'万普',name:'CS'},		
+				{cid:'hq-03',money:1.9,type:'农业',name:'WP'},
+				{cid:'dq-支付宝',money:1.30,type:'支付宝',name:'CS'}				
+			],			 
+			[
+				{cid:'wj-01',user:"cb",money:0.10},		
+				{cid:'wj-02',user:"wq",money:0.50},				
+				{cid:'wj-03',user:"wyf",money:1.80},	
+				{cid:'wj-04',user:"jj",money:2.00},
+				{cid:'wj-05',user:"cf",money:0.50},
+				{cid:'wj-06',user:"bj",money:0.30},
+				{cid:'wj-06',user:"hb",money:0.60},
+				{cid:'wj-07',user:"gs",money:1.00},
+				{cid:'wj-08',user:"lgh",money:2.00}
+			]
+		] 
+
+		window.onload=function(){			
+			var html = "<table border=1 width='80% align='center'>"
+			var zmoney = 0;
+			html += "<tr>"
+			for(var k = 0; k< title.length; k++){
+				var obj = title[k][1];				 
+				html += "<td align='center'>"+ obj +"</td>"
+			}
+			html += "</tr>"
+			for(var i=0; i< info.length; i++){ 
+				var item = info[i];
+				var money = 0;
+				for(var j = 0; j<item.length; j++){
+					var json = item[j];	
+					if(json){
+						
+					 
+						html += "<tr>"					
+						for(var k = 0; k< title.length; k++){
+							var obj = title[k][0];
+							//try{
+							var	v_ = eval("json." + obj);
+							
+							if(v_){
+								var style= "";
+								if(obj == "money"){
+									style = "align='right'"
+									v_ = v_.toFixed(2)
+								}
+								html += "<td "+ style +" >"+ v_ +"</td>"
+							}else{
+								html += "<td>&nbsp;</td>"
+							}						
+						}
+						/*
+						html += "<td>"+ json.cid +"</td>"
+						html += "<td>"+ json.money +"</td>"
+						html += "<td>"+ json.bfb +"</td>"
+						html += "<td>"+ json.ctype +"</td>"
+						html += "<td>"+ json.year +"</td>"
+						html += "<td>"+ json.cdate +"</td>"
+						html += "<td>"+ json.type +"</td>"
+						html += "<td>"+ json.name +"</td>"
+						*/
+						html += "</tr>"
+						money += json.money
+					}
+				}
+				//..............
+				zmoney += money;
+				html += "<tr bgcolor='red'>"
+					html += "<td align='right'>小计</td>"
+					html += "<td align='right'>"+ money.toFixed(2) +"</td>"
+					html += "<td></td>"
+					html += "<td></td>"
+					html += "<td></td>"
+					html += "<td></td>"
+					html += "<td></td>"
+					html += "<td></td>"
+					html += "<td></td>"
+					html += "</tr>"			 
+			}
+			html += "<tr>"
+			html += "<td align='right'>总计</td>"
+			html += "<td align='right'>"+ zmoney.toFixed(2) +"</td>"
+			html += "<td></td>"
+			html += "<td></td>"
+			html += "<td></td>"
+			html += "<td></td>"
+			html += "<td></td>"
+			html += "<td></td>"
+			html += "<td></td>"
+			html += "</tr>"	
+			html += "</table>"
+			document.getElementById('d').innerHTML = html;			
+		}
+	</script>
+	<center>
+	<div id = 'd'>			
+	</div>
+	</center>	
+</body>
+</html>
