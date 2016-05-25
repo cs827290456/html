@@ -275,7 +275,7 @@
 			for(i in obj){
 				$('#aa').accordion('add',
 				{
-			        title: i+"--" + t, 
+			        title:  t+"--"+i, 
 			        selected: !b?true:false,
 			        content: '<div style="padding:10px">'+ getItem(obj[i]) +'</div>',
 			     });
@@ -289,7 +289,7 @@
 // 				 html += ' <div ><table><tr><td><img src="../themes/icons/help.png"> </td><td><a href="javascript:openMeun(\''+ i +'\')">希望能够'+ i +'</a></td></tr></table></div> ';				 
 // 			 }
 			 for(var i =0;i<arr.length;i++){ 
-				 html += ' <div ><table><tr><td><img src="../themes/icons/help.png"> </td><td><a href="javascript:openMeun(\''+ arr[i].url +'\',\'' + arr[i].name + '\')">希望能够=>'+ arr[i].name +'</a></td></tr></table></div> ';				 
+				 html += ' <div ><table><tr><td><img src="../themes/icons/help.png"> </td><td><a href="javascript:openMeun(\''+ arr[i].url +'\',\'' + arr[i].name + '\')">'+ arr[i].name +'</a></td></tr></table></div> ';				 
 			 }
 			 return html;
 		}
