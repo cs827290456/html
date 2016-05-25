@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>字符串加密</title>
+</head>
+<body>
+ <SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function encrypt(str, pwd) {
+  if(pwd == null || pwd.length <= 0) {
+    alert("Please enter a password with which to encrypt the message.");
+    return null;
+  }
+  var prand = "";
+  for(var i=0; i<pwd.length; i++) {
+    prand += pwd.charCodeAt(i).toString();
+  }
+  var sPos = Math.floor(prand.length / 5);
+  var mult = parseInt(prand.charAt(sPos) + prand.charAt(sPos*2) + prand.charAt(sPos*3) + prand.charAt(sPos*4) + prand.charAt(sPos*5));
+  var incr = Math.ceil(pwd.length / 2);
+  var modu = Math.pow(2, 31) - 1;
+  if(mult < 2) {
+    alert("Algorithm cannot find a suitable hash. Please choose a different password. \nPossible considerations are to choose a more complex or longer password.");
+    return null;
+  }
+  var salt = Math.round(Math.random() * 1000000000) % 100000000;
+  prand += salt;
+  while(prand.length > 10) {
+    prand = (parseInt(prand.substring(0, 10)) + parseInt(prand.substring(10, prand.length))).toString();
+  }
+  prand = (mult * prand + incr) % modu;
+  var enc_chr = "";
+  var enc_str = "";
+  for(var i=0; i<str.length; i++) {
+    enc_chr = parseInt(str.charCodeAt(i) ^ Math.floor((prand / modu) * 255));
+    if(enc_chr < 16) {
+      enc_str += "0" + enc_chr.toString(16);
+    } else enc_str += enc_chr.toString(16);
+    prand = (mult * prand + incr) % modu;
+  }
+  salt = salt.toString(16);
+  while(salt.length < 8)salt = "0" + salt;
+  enc_str += salt;
+  return enc_str;
+}
+
+function decrypt(str, pwd) {
+  if(str == null || str.length < 8) {
+    alert("A salt value could not be extracted from the encrypted message because it's length is too short. The message cannot be decrypted.");
+    return;
+  }
+  if(pwd == null || pwd.length <= 0) {
+    alert("Please enter a password with which to decrypt the message.");
+    return;
+  }
+  var prand = "";
+  for(var i=0; i<pwd.length; i++) {
+    prand += pwd.charCodeAt(i).toString();
+  }
+  var sPos = Math.floor(prand.length / 5);
+  var mult = parseInt(prand.charAt(sPos) + prand.charAt(sPos*2) + prand.charAt(sPos*3) + prand.charAt(sPos*4) + prand.charAt(sPos*5));
+  var incr = Math.round(pwd.length / 2);
+  var modu = Math.pow(2, 31) - 1;
+  var salt = parseInt(str.substring(str.length - 8, str.length), 16);
+  str = str.substring(0, str.length - 8);
+  prand += salt;
+  while(prand.length > 10) {
+    prand = (parseInt(prand.substring(0, 10)) + parseInt(prand.substring(10, prand.length))).toString();
+  }
+  prand = (mult * prand + incr) % modu;
+  var enc_chr = "";
+  var enc_str = "";
+  for(var i=0; i<str.length; i+=2) {
+    enc_chr = parseInt(parseInt(str.substring(i, i+2), 16) ^ Math.floor((prand / modu) * 255));
+    enc_str += String.fromCharCode(enc_chr);
+    prand = (mult * prand + incr) % modu;
+  }
+  return enc_str;
+}
+//  End -->
+</script>
+<form name="box"><center>
+
+<a href="https://ebank.bankofbeijing.com.cn/bccbpb/accountLogon.jsp?language=zh_CN" style="color:red"  target="_blank" >bjbank</a>
+<a href="https://mybank.icbc.com.cn/icbc/perbank/index.jsp" style="color:red" target="_blank" >icbc</a>
+<a href="https://pbank.psbc.com/pweb/prelogin.do?_locale=zh_CN&BankId=9999" style="color:red" target="_blank" >psbc</a>
+
+<table cellpadding=0 cellspacing=0 border=0><tr><td colspan=3>
+<textarea cols=100 rows=15 wrap=virtual name=ipt></textarea>
+</td></tr>
+<tr height=50><td>
+<input type="button" onclick="document.box.opt.value= encrypt(document.box.ipt.value, document.box.pwd.value);" value="加密">
+</td><td align="center" valign="center">
+输入您的解码:<input type="password" name="pwd" value="password">
+</td><td>
+<input type="button" onclick="document.box.ipt.value= decrypt(document.box.opt.value, document.box.pwd.value);" value="解密">
+</td></tr>
+<tr><td colspan=3>
+<textarea cols=100 rows=15  wrap=virtual name=opt>
+13c82829929afa45f57f227e62d877b082a18fe6d21192be8ed2a8f53908282b56f7171907e88b26616d66c25ab32aff1a0505a0f73faffad58bb759a07fd7ce8eaa6106100687a13b1f01a3fab7cef4392f9eabc848596305a3cb08ff7d880a3de0c33d325fb2d02735b753cd6df3f8525f7249f95da1c76d1b3f2f032928bb97bbc7b41b70ebe50a3e2e9a1c3e93061a5cd46ae2faa6d12c66496ad61182e58b2f565fbf68a29f4e348efad8f09efa47f6e50cfc8934375020079dae8df258466fef54912fac1c95ba1ef2d5908b2f100b603b9521115d42f69c32405d511b12d42566c28c03ea59f57c2f11c5a1d394a9cf8d47d6e7cb99d6635041f54a8254cf99668aa1f3a775934c4fdce4f2bd0213293313adc4d81cabc0e276eca216aacbd62096e51243af5c6d797bef3fadf05065f8134929f70b8c43e195c787acd5d6e7f0c355baec5b7de3f03030f8821ba5888ac84b2dba8553ade0451878525dbbd40d108381e900e2084d6a58309445e86ee20eac24be22ee986d0dbd05899d3913dae72ffdace5970f3f3f7ecd23c7d403d77b57e1895e1642870a75c58a9694400ce3d992312bcb01788c72384aef80cd43157169fad3d4cb38b73e5a834bd8c601da3994a1820a0df7b5f322e33295187b2f3aeee3b37db326dc4cc62b9dc09cdd2bcecc0f1ca9a7d4531059f0031f13dd47bb1264bb835770e9923ec210843b0f7cb009287bc7ed1ef5bdbd77686e78c3f85884daa80dbbf0a04d19791154a21a27197f658b4b9cbe143af5708f47919d4b32af4cef2d8eba96b37f9692d6d2c6863bc4f7bff1dc4d99f3ad69956c6744afeb7aa830eed4bc81f610e4a61449d716685f8533196bab39966c5ffdf220b9ecb98f12f2c55b420101e0e746fd5fce4a54b50754c4fe7d2b4ca4d4db7bc7c6c894c2649120cfaa4991752b37a4c5a004e5357511b180c4be3b8797d1797909d14e9e92c77657fc351f1a92880f8b80c0d9f2d96d0ab8df6641ade14b78052020a02828818c515d8580cceb4c47ef97ca2f7ddf5f1da4e2e58f09389f66ae2fc7301b50a77a44b013246f137cf5fdfdbbb974f2e57b1fdfbfaf6fa1d532dcfe6e8f3f46cab97bf8acdbeff154e4586b348baa5621662aa1672723a6cc0ab449882d7f508b205e117cae5d57315311f70fe90661f987d852812d269eab2c2afc891b56dbee167a2e416f90d27092c063c890f8a644be6a03ba1f45dbf6db9d63937749835be8d7bd98f0d47aa691b8932239c0fc8883a8ee8eab0af7c6490662f19a8e4403d0930c3b93d1b9e8bbeb8883ea1e0b8afc54bc2eab372f9d3fee6d2f7f1cbc338a464c5765b6664ceb70d10ee7ed28577438e1138f9a50422962b1f372934aa195fc12e98c51bca90c007709b51cc79d9365e3ec257a6e64c5f9aef3a981438dbc7e8ac47ed87e64e6a79e834dbfc8f88e91cd64af8f8a834c9850936d18a7709e620a75738e294f7a1ff3c81e3e0f9e1984d7d56153bc9d6e0025c401e0028f93e1ce8bc46c7c70b979cb09451a900ea147dd6579c355b47004d7792b64496d52f3eb7c597826761a41ebbb4ff590a820364a7b08b1e93403d9007cc265
+</textarea>
+</td></tr></table>
+</center>
+</form>
+</body>
+</html>
