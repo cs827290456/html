@@ -9,6 +9,8 @@
 //alert(100.23+10.45+100.55)
 //var a = 10.3;
 //alert(a.toFixed(2));
+
+/*
 var title = [["cid","ID"],["money","数值"],["year","时间"],["cdate","时间"],["type","类型"],["name","归属"],["ctype","自转"],["bfb","bfb"],["user","备注"]];  
 		var info = 
 		[			
@@ -40,6 +42,57 @@ var title = [["cid","ID"],["money","数值"],["year","时间"],["cdate","时间"
 				{cid:'wj-08',user:"lgh",money:2.00}
 			]
 		] 
+	*/	
+		
+		
+		var title = [["cid","ID"],["money","数值"],["year","时间"],["cdate","时间"],["type","类型"],["name","归属"],["ctype","自转"],["bfb","百分比"],["user","备注"]];
+		var info = 		
+			[			
+				[
+					//{cid:'dq-86071540011429823013',money:2.00,year:1,cdate:'2013-06-17',type:'农合',name:'CS',ctype:'no',bfb:0.032},	
+					//{cid:'dq-86071540011977292013',money:1.80,year:1,cdate:'2014-01-30',type:'农合',name:'CS',ctype:'ok',bfb:0.032}, 	
+	                                //{cid:'dq-86071540012503123013',money:2.20,year:1,cdate:'2014-07-20',type:'农合',name:'CS',ctype:'ok',bfb:0.032}, 				
+					//{cid:'dq-86071540011816028013',money:3.00,year:1,cdate:'2013-12-02',type:'农合',name:'WP',ctype:'ok',bfb:0.032},
+					//{cid:'dq-0303430626002020860',money:4.00,year:3,cdate:'2012-09-26',type:'邮政',name:'WP',ctype:'ok',bfb:0.032}
+					//{cid:'dq-0303430626001911729',money:5.00,year:1,cdate:'2013-04-15',type:'邮政',name:'WP',ctype:'ok',bfb:0.032},
+	                                //{cid:'dq-86071540011972412013',money:3.50,year:1,cdate:'2014-01-29',type:'农合',name:'MM',ctype:'no',bfb:0.032},
+	                                //{cid:'dq-86071540012196308013',money:1.00,year:1,cdate:'2014-04-03',type:'农合',name:'CS',bfb:0.032},
+					//{cid:'dq-xxx',money:20.60,year:1,cdate:'2013-12-31',type:'工商',name:'CS',ctype:'no',bfb:0.032},
+					//{cid:'dq-yyy',money:54.70,year:1,cdate:'2014-02-16',type:'工商',name:'CS',ctype:'no',bfb:0.032}
+				],			 
+				[
+					{cid:'hq-01',money:0.00,type:'工商',name:'CS'},		
+					{cid:'hq-02',money:0.00,type:'万普',name:'CS'},		 
+	                {cid:'hq-04',money:0.00,type:'邮政',name:'WP'}, 
+	                {cid:'hq-05',money:0.00,type:'工商(湘阴)',name:'WP'}, 
+					{cid:'dq-支付宝',money:10.5,type:'支付宝',name:'CS'}		
+				],			 
+				[
+					//{cid:'wj-03',user:"王义芳",money:0.40}, 
+					{cid:'wj-05',user:"邵子",money:1.00},
+					//{cid:'wj-06',user:"贺彬",money:0.20},
+					{cid:'wj-06',user:"甘果",money:1.00},
+					//{cid:'wj-06',user:"陈彬",money:1.00},
+					{cid:'wj-06',user:"陈峰",money:3.50},
+					//{cid:'wj-07',user:"张飞",money:0.20},
+					{cid:'wj-08',user:"徐博",money:0.05},
+					{cid:'wj-06',user:"伟哥",money:0.50},
+					{cid:'wj-06',user:"灿哥",money:1.50},				
+					{cid:'wj-07',user:"陈迪积",money:0.50}, 
+	                {cid:'wj-09',user:"陈龙",money:2.00},
+	                {cid:'wj-10',user:"王果",money:2.00},
+	                {cid:'wj-12',user:"刘明香",money:0.60,bfb:0.012},
+	                {cid:'wj-13',user:"塘角刘(6波)",money:3.00,bfb:0.012}	
+				],
+	                        [
+					{cid:'mm-01',money:1.00,user:'李平'},		
+					{cid:'mm-02',money:1.00,user:'李义'},		
+					{cid:'mm-03',money:2.75,user:'同学(吴鹏/吴胜明)',bfb:0.012},
+					{cid:'mm-04',money:2.80,user:'(土地弯)陈光跃,邵萍',bfb:0.012},
+					{cid:'mm-05',money:1.00,user:'陈燕蓝',bfb:0.012}
+	                                //???     {cid:'mm-86071540012438219013',money:2.00,year:1,cdate:'2014-06-22',type:'农合',name:'MM',bfb:0.032}
+				]
+			]
 
 		window.onload=function(){			
 			var html = "<table border=1 width='80% align='center'>"
