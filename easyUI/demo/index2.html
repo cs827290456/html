@@ -15,7 +15,7 @@
 		 <table border=0 width="100%" height="75px" cellpadding="0" cellspacing="0">
 		 	<tr>
 		 		<td width="90%">
-		 			<span style="font-size: 34px">WBW+_______v1.0</span>
+		 			<span style="font-size: 34px">WBW+业务记录系统v1.0</span>
 		 		</td> 
 		 		<td  width="320px" id="system_tab_f" valign="bottom"> 
 		 			<div id="system_tab" class="easyui-tabs" style="height:auto;width:100%;margin-top:48px;"  data-options="fit:false,plain:true,border:false">
@@ -58,7 +58,7 @@
 	<div data-options="region:'center'" data-options="fit:true"> 
 		<div id="tt" class="easyui-tabs" style="width:100%" data-options="fit:true,border:false">  
 			
-			 
+			<!--  
 			<div title="About" style="padding:10px" data-options="fit:true">
 			  <div class="easyui-layout" data-options="fit:true">
                 <div data-options="region:'north',split_:true,border:false" style="height:140px;padding-bottom:10px"  data-options="fit:true">
@@ -131,10 +131,11 @@
                 </div> 
             </div>
 		</div>
-		
+		 -->
 		 
-		<div title="测试第一波" style="padding:10px"  > 
-		
+		 
+		<!--  
+		<div title="测试第一波" style="padding:10px"  >  
 			
 			 <div id="p" class="easyui-panel" title="查询条件" style="width:100%;" data-options="border:true">
 				<p style="font-size:14px">jQuery EasyUI framework helps you build your web pages easily.</p>
@@ -210,9 +211,12 @@
 			</table>
 			 
 		</div>
+		-->
 	 
-		<div title="Help" data-options="iconCls:'icon-help',closable:true" style="padding:10px">
-			  sdfsdfasdf
+		<div title="Help" data-options="iconCls:'icon-help',closable:true" style="padding:10px;padding-top: 100px;">
+			  <center>
+			  <h1>wbw+业务记录系统1.0正式上线!!!</h1>
+			  </center>
 		</div>
 	</div>
 	
@@ -228,28 +232,23 @@
 		
 		var menu = 
 			{
-				"系统":{  "基本1":["",""], "基本2":["",""] },
-				"基本":{  "基本1":["",""], "基本2":["",""] },
-				"设置":{  "基本1":["",""], "基本2":["",""] } 			
+				"系统设置":{  "基本1":[{"name":"m","url":"http://cs827290456.github.io/html/cs/m.html"},{"name":"b","url":"http://cs827290456.github.io/html/cs/b.html"},{"name":"cs","url":"http://cs827290456.github.io/html/cs/cs.html"}], "基本2":[{"name":"71","url":""},{"name":"41","url":""}] },
+				"基本情况":{  "基本1":[{"name":"12","url":""},{"name":"15","url":""}], "基本2":[{"name":"61","url":""},{"name":"31","url":""}] },
+				"详细设置":{  "基本1":[{"name":"13","url":""},{"name":"16","url":""}], "基本2":[{"name":"51","url":""},{"name":"41","url":""}] },
+				"其它业务":{  "基本1":[{"name":"13","url":""},{"name":"16","url":""}], "基本2":[{"name":"51","url":""},{"name":"41","url":""}] } 		
 			}
 	
 	
-		$(function(){ 
+		$(function(){  
 			
-		
-			 
-			
-			 $("#system_tab").css("width","320px"); 
-			 
+			 $("#system_tab").css("width","320px");  
 			 for(i in menu){
-				 $('#system_tab').tabs('add', { title: i, content: '', closable: false }); 	
-					//alert(i)
-				}
-			 
+				 $('#system_tab').tabs('add', { title: i, content: '', closable: false }); 	 
+			 } 
 			 //$('#system_tab').tabs('add', { title: "=ok1=", content: '', closable: false });  
-			// $('#system_tab').tabs('add', { title: "=ok2=", content: '', closable: false });  
-			// $('#system_tab').tabs('add', { title: "=ok3=", content: '', closable: false });  
-			// $('#system_tab').tabs('add', { title: "=ok4=", content: '', closable: false }); 			 
+			 //$('#system_tab').tabs('add', { title: "=ok2=", content: '', closable: false });  
+			 //$('#system_tab').tabs('add', { title: "=ok3=", content: '', closable: false });  
+			 //$('#system_tab').tabs('add', { title: "=ok4=", content: '', closable: false }); 			 
 			 $('#system_tab').tabs({
 				    border:false,
 				    onSelect:function(title,index){
@@ -264,8 +263,45 @@
 				for(var i=0;i<len;i++){
 			 		$('#aa').accordion('remove',0);
 			 	} 
-				testAddAcc(title); 
+				testAddAcc(title,index); 
 		}
+		
+		function testAddAcc(t,index){
+			
+			//alert(t + "=>>>=" + index+"/" + menu[t])
+			
+			var obj = menu[t];
+			var b = false;
+			for(i in obj){
+				$('#aa').accordion('add',
+				{
+			        title: i+"--" + t, 
+			        selected: !b?true:false,
+			        content: '<div style="padding:10px">'+ getItem(obj[i]) +'</div>',
+			     });
+				b = true;
+			}  
+		}
+		
+		function getItem(arr){
+			 var html = "";
+// 			 for(var i =0;i<10;i++){ 
+// 				 html += ' <div ><table><tr><td><img src="../themes/icons/help.png"> </td><td><a href="javascript:openMeun(\''+ i +'\')">希望能够'+ i +'</a></td></tr></table></div> ';				 
+// 			 }
+			 for(var i =0;i<arr.length;i++){ 
+				 html += ' <div ><table><tr><td><img src="../themes/icons/help.png"> </td><td><a href="javascript:openMeun(\''+ arr[i].url +'\',\'' + arr[i].name + '\')">希望能够=>'+ arr[i].name +'</a></td></tr></table></div> ';				 
+			 }
+			 return html;
+		}
+		
+		function openMeun(url,name){
+			//alert(url)
+			//myopen();
+			//addTab("TTTT", "tab.html"); 
+			addTab(name, url); 
+			return false;
+		}
+		
 	
 		function openwindow(){
 			//alert(111);
@@ -296,7 +332,7 @@
 		
 		//增加Tab
 		function addTab(title, url){
-			alert("[" + title + "]" + $('#tt').tabs('exists', title))
+			//alert("[" + title + "]" + $('#tt').tabs('exists', title))
 			if ($('#tt').tabs('exists', title)){
 				$('#tt').tabs('select', title);
 			} else {
@@ -381,32 +417,7 @@
 			$('#dg').datagrid({loadFilter:pagerFilter}).datagrid('loadData', getData()); 
 			//testAddAcc();
 		});
-		
-		function testAddAcc(t){  
-			 for(var i =0;i<4;i++){  
-				 $('#aa').accordion('add',
-					{
-	                 title: i+"--" + t, 
-	                 selected: i==0?true:false,
-	                 content: '<div style="padding:10px">'+  getItem() +'</div>',
-	             });
-			 }  
-		}
-		
-		function getItem(){
-			 var html = "";
-			 for(var i =0;i<10;i++){ 
-				 html += ' <div ><table><tr><td><img src="../themes/icons/help.png"> </td><td><a href="javascript:openMeun(\''+ i +'\')">希望能够'+ i +'</a></td></tr></table></div> ';				 
-			 }
-			 return html;
-		}
-		
-		function openMeun(args){
-			//myopen();
-			addTab("TTTT", "tab.html"); 
-			return false;
-		}
-		
+		 
 	</script>
 </body>
 </html>
