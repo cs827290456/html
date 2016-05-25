@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Full Layout - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="demo.css">
+	<script type="text/javascript" src="../jquery.min.js"></script>
+	<script type="text/javascript" src="../jquery.easyui.min.js"></script> 
+</head>
+<body class="easyui-layout">	 
+
+	<div data-options="region:'north',border:false" style="height:75px;background:#E6F0FF;padding-top:0px;overflow-x:hidden;overflow-y:hidden;"> 
+		 <table border=0 width="100%" height="75px" cellpadding="0" cellspacing="0">
+		 	<tr>
+		 		<td width="90%">
+		 			<span style="font-size: 34px">海牛金融后台管理系统v1.0</span>
+		 		</td> 
+		 		<td  width="320px" id="system_tab_f" valign="bottom"> 
+		 			<div id="system_tab" class="easyui-tabs" style="height:auto;width:100%;margin-top:48px;"  data-options="fit:false,plain:true,border:false">
+<!-- 						<div title="系统管理" style="padding:0px;"> </div> -->
+<!-- 						<div title="日志管理" style="padding:0px;"> </div> -->
+<!-- 						<div title="报表管理" style="padding:0px;"> </div> -->
+<!-- 						<div title="其它设置" style="padding:0px;"> </div> -->
+					</div>
+		 		</td>
+		 	</tr>
+		 </table>  
+	</div> 
+	<div data-options="region:'west',split:true,titXle:'NB'" style="width:200px;">   
+		<div id="aa" class="easyui-accordion" style="width:100%;" data-options="fit:true,border:false">  
+			<!-- 	
+		    <div title="Title1" data-options="iconCls:'icon-save'" style="overflow:auto;padding:10px;">  
+		        <h3 style="color:#0099FF;">Accordion for jQuery</h3>  
+		        <p>Accordion is a part of easyui framework for jQuery.    
+		        It lets you define your accordion component on web page more easily.</p>  
+		    </div>  
+		    <div title="Title2" data-options="iconCls:'icon-reload'" style="padding:10px;">  
+		        content2   
+		    </div>  
+		    <div title="Title3" data-options="selected:true">  
+		        content3  
+		        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="testFm()">tab</a>  
+		        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="myopen()">Open - tab</a> 
+		        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="openwindow()">Open - window</a> 
+				<a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#w').window('close')">Close</a>  
+		    </div>  
+		     -->
+		</div> 
+		
+		
+	</div>
+	<!-- 
+	<div data-options="region:'east',split:true,collapsed:true,title:'East'" style="width:100px;padding:10px;">east region</div>	
+	<div data-options="region:'south',border:false" style="height:50px;background:#A9FACD;padding:10px;">south region</div>
+	-->
+	<div data-options="region:'center'" data-options="fit:true"> 
+		<div id="tt" class="easyui-tabs" style="width:100%" data-options="fit:true,border:false">  
+			
+			 
+			<div title="About" style="padding:10px" data-options="fit:true">
+			  <div class="easyui-layout" data-options="fit:true">
+                <div data-options="region:'north',split_:true,border:false" style="height:140px;padding-bottom:10px"  data-options="fit:true">
+	                 
+                	<div class="easyui-panel" title="查询条件" style="width:100%:" data-options="fit:true,noheader:false,tools:'#ttt'">
+                		<div id="ttt">
+							<a href="javascript:void(0)" class="icon-add" onclick="javascript:alert('add')"></a>
+							<a href="javascript:void(0)" class="icon-edit" onclick="javascript:alert('edit')"></a>
+							<a href="javascript:void(0)" class="icon-cut" onclick="javascript:alert('cut')"></a>
+							<a href="javascript:void(0)" class="icon-help" onclick="javascript:alert('help')"></a>
+							<a href="javascript:void(0)" style="width:30px" onclick="javascript:alert('select')"> 查询 </a>
+						</div>	 
+				        <div style="padding:10px 60px 20px 60px" data-options="fit:true">
+				        <form id="ff" method="post">
+				            <table cellpadding="5" style="width:100%" data-options="fit:true"> 
+				                <tr>
+				                    <td>Name:</td>
+				                    <td><input class="easyui-textbox" type="text" name="name" data-options="required:true"></input></td>
+				                
+				                    <td>Email:</td>
+				                    <td><input class="easyui-textbox" type="text" name="email" data-options="required:true,validType:'email'"></input></td>
+				                 
+				                    <td>Subject:</td>
+				                    <td><input class="easyui-textbox" type="text" name="subject" data-options="required:true"></input></td>
+				               
+				                    <td>Message:</td>
+				                    <td><input class="easyui-textbox" name="message" data-options="multiline:true" ></input></td>
+				                </tr>
+				                <tr>
+				                    <td>Name:</td>
+				                    <td><input class="easyui-textbox" type="text" name="name" data-options="required:true"></input></td>
+				                
+				                    <td>Email:</td>
+				                    <td><input class="easyui-textbox" type="text" name="email" data-options="required:true,validType:'email'"></input></td>
+				                 
+				                    <td>Subject:</td>
+				                    <td><input class="easyui-textbox" type="text" name="subject" data-options="required:true"></input></td>
+				               
+				                    <td>Message:</td>
+				                    <td><input class="easyui-textbox" name="message" data-options="multiline:true" ></input></td>
+				                </tr> 
+				            </table>
+				        </form> 
+				        </div> 
+				    </div> 
+                </div>
+               
+                <div data-options="region:'center',border:false"> 
+                		<table id="dg" title="数据展示"  style="width:100%;height:700px;" data-options="
+                			fit:true,
+							border:true,
+							fitColumns:true,
+							rownumbers:true,
+							singleSelect:true,
+							autoRowHeight:false,
+							pagination:true,
+							pageSize:10">
+							<thead>
+								<tr>
+									<th field="inv" width="80">Inv No</th>
+									<th field="date" width="100">Date</th>
+									<th field="name" width="80">Namedddd</th>
+									<th field="amount" width="80" align="right">Amount</th>
+									<th field="price" width="80" align="right">Price</th>
+									<th field="cost" width="100" align="right">Cost</th>
+									<th field="note" width="110">Note</th>
+								</tr>
+							</thead>
+						</table> 
+                </div> 
+            </div>
+		</div>
+		
+		 
+		<div title="测试第一波" style="padding:10px"  > 
+		
+			
+			 <div id="p" class="easyui-panel" title="查询条件" style="width:100%;" data-options="border:true">
+				<p style="font-size:14px">jQuery EasyUI framework helps you build your web pages easily.</p>
+				<ul>
+					<li>easyui is a collection of user-interface plugin based on jQuery.</li>
+					<li>easyui provides essential functionality for building modem, interactive, javascript applications.</li>
+					<li>using easyui you don't need to write many javascript code, you usually defines user-interface by writing some HTML markup.</li>
+					<li>complete framework for HTML5 web page.</li>
+					<li>easyui save your time and scales while developing your products.</li>
+					<li>easyui is very easy but powerful.</li>
+				</ul>
+			</div>
+			
+			
+			<div class="easyui-panel" title="查询条件" style="width:100%">
+		        <div style="padding:10px 60px 20px 60px">
+		        <form id="ff" method="post">
+		            <table cellpadding="5" style="width:100%"> 
+		                <tr>
+		                    <td>Name:</td>
+		                    <td><input class="easyui-textbox" type="text" name="name" data-options="required:true"></input></td>
+		                
+		                    <td>Email:</td>
+		                    <td><input class="easyui-textbox" type="text" name="email" data-options="required:true,validType:'email'"></input></td>
+		                 
+		                    <td>Subject:</td>
+		                    <td><input class="easyui-textbox" type="text" name="subject" data-options="required:true"></input></td>
+		               
+		                    <td>Message:</td>
+		                    <td><input class="easyui-textbox" name="message" data-options="multiline:true" ></input></td>
+		                </tr>
+		                <tr>
+		                    <td>Name:</td>
+		                    <td><input class="easyui-textbox" type="text" name="name" data-options="required:true"></input></td>
+		                
+		                    <td>Email:</td>
+		                    <td><input class="easyui-textbox" type="text" name="email" data-options="required:true,validType:'email'"></input></td>
+		                 
+		                    <td>Subject:</td>
+		                    <td><input class="easyui-textbox" type="text" name="subject" data-options="required:true"></input></td>
+		               
+		                    <td>Message:</td>
+		                    <td><input class="easyui-textbox" name="message" data-options="multiline:true" ></input></td>
+		                </tr> 
+		            </table>
+		        </form>
+		       
+		        </div>
+		    </div>
+			
+			<br>
+			 
+			<table id="dg2" title="数据展示"  style="width:100%;height:700px;" data-options="
+				fit:true,
+				border:true,
+				fitColumns:true,
+				rownumbers:true,
+				singleSelect:true,
+				autoRowHeight:false,
+				pagination:true,
+				pageSize:10">
+				<thead>
+					<tr>
+						<th field="inv" width="80">Inv No</th>
+						<th field="date" width="100">Date</th>
+						<th field="name" width="80">Namedddd</th>
+						<th field="amount" width="80" align="right">Amount</th>
+						<th field="price" width="80" align="right">Price</th>
+						<th field="cost" width="100" align="right">Cost</th>
+						<th field="note" width="110">Note</th>
+					</tr>
+				</thead>
+			</table>
+			 
+		</div>
+	 
+		<div title="Help" data-options="iconCls:'icon-help',closable:true" style="padding:10px">
+			  sdfsdfasdf
+		</div>
+	</div>
+	
+	</div>
+	
+	<div id="w" class="easyui-window" title="Modal Window" data-options="modal:false,closed:true,iconCls:'icon-save'" style="width:500px;height:200px;padding:10px;">
+		The window content.
+	</div>
+	
+	<div id="w13" class="easyui-window" title="Modal Window" data-options="modal:true,closed:true,iconCls:'icon-save'" style="width:500px;height:200px;padding:10px;">he window content.</div>
+	
+	<script> 
+		$(function(){ 
+			 $("#system_tab").css("width","320px"); 
+			 $('#system_tab').tabs('add', { title: "=ok1=", content: '', closable: false });  
+			 $('#system_tab').tabs('add', { title: "=ok2=", content: '', closable: false });  
+			 $('#system_tab').tabs('add', { title: "=ok3=", content: '', closable: false });  
+			 $('#system_tab').tabs('add', { title: "=ok4=", content: '', closable: false }); 			 
+			 $('#system_tab').tabs({
+				    border:false,
+				    onSelect:function(title,index){
+				    	onTabSelect(title,index); 
+				    }
+				});
+		});
+		
+		function onTabSelect(title,index){  
+				var pp = $("#aa").accordion('panels'); 
+				var len = pp.length
+				for(var i=0;i<len;i++){
+			 		$('#aa').accordion('remove',0);
+			 	} 
+				testAddAcc(title); 
+		}
+	
+		function openwindow(){
+			//alert(111);
+			//$('#w').window('open')
+			 var con = '<iframe style="width:100%;height:99%;border:0;" src="item.html"></iframe>';
+			// var con = "xxxxxxxxxxxxxxx"
+			 $('#w').html(con);  
+			 $('#w').window({   
+				       width: 450,   
+				       height: 620,   
+				       top:($(window).height() - 620) * 0.5,   
+			           left:($(window).width() - 450) * 0.5,
+				       modal:true  
+				  });
+			$('#w').window('open'); 
+		}
+		
+		//调用子页面的方法
+		function testFm(){
+			$('#tabTest').contents().find("#xxx").click();
+		}
+		
+	
+		var i = 0;
+		function myopen(){
+			addTab("TTTT" + (i++), "tab.html"); 
+		}  
+		
+		//增加Tab
+		function addTab(title, url){
+			alert("[" + title + "]" + $('#tt').tabs('exists', title))
+			if ($('#tt').tabs('exists', title)){
+				$('#tt').tabs('select', title);
+			} else {
+				//var content = '<iframe frameborder="0" id="tabTest" src="'+url+'" style="border:0;width:100%;height:100%;overflow-y:hidden; " scrolling=\"no\"   ></iframe>';
+// 				$('#tt').tabs('add',{
+// 					title:title,
+// 					content:content,
+// 					closable:true
+// 				});
+				
+				   $('#tt').tabs('add', { title: title, content: '<iframe name="mainFrame" scrolling="auto" frameborder="0"  src="' + url + '" style="width:100%;height:99%;"></iframe>', closable: true });
+	               //$('#tt').tabs('getSelected').css('width', 'auto'); 
+				
+				  // $('#tabs').tabs('add', { title: subtitle, content: '<iframe name="mainFrame" scrolling="auto" frameborder="0"  src="' + url + '" style="width:100%;height:100%;"></iframe>', closable: true });
+	             //   $('#tabs').tabs('getSelected').css('width', 'auto'); 
+				
+			}
+		}
+	 
+		//
+		function open(_url,_title){ 
+			
+			var div_ = "<div id=\"w1\" class=\"easyui-window\" title=\"Modal Window\" data-options=\"modal:true,closed:true,iconCls:'icon-save'\" style=\"width:500px;height:200px;padding:10px;\"> sdfasdfsdfasdfhe window content.</div>"; 
+			var div = $(div_);
+		 	div.appendTo("body"); 
+		    $.parser.parse("#w1") 
+		    $('#w1').window('open') 
+		
+	}
+		//====================================
+	
+	
+		function getData(){
+			var rows = [];
+			for(var i=1; i<=800; i++){
+				var amount = Math.floor(Math.random()*1000);
+				var price = Math.floor(Math.random()*1000);
+				rows.push({
+					inv: 'Inv No '+i,
+					date: $.fn.datebox.defaults.formatter(new Date()),
+					name: 'Name '+i,
+					amount: amount,
+					price: price,
+					cost: amount*price,
+					note: 'Note '+i
+				});
+			}
+			return rows;
+		}
+		
+		function pagerFilter(data){
+			if (typeof data.length == 'number' && typeof data.splice == 'function'){	// is array
+				data = {
+					total: data.length,
+					rows: data
+				}
+			}
+			var dg = $(this);
+			var opts = dg.datagrid('options');
+			var pager = dg.datagrid('getPager');
+			pager.pagination({
+				onSelectPage:function(pageNum, pageSize){
+					opts.pageNumber = pageNum;
+					opts.pageSize = pageSize;
+					pager.pagination('refresh',{
+						pageNumber:pageNum,
+						pageSize:pageSize
+					});
+					dg.datagrid('loadData',data);
+				}
+			});
+			if (!data.originalRows){
+				data.originalRows = (data.rows);
+			}
+			var start = (opts.pageNumber-1)*parseInt(opts.pageSize);
+			var end = start + parseInt(opts.pageSize);
+			data.rows = (data.originalRows.slice(start, end));
+			return data;
+		}
+		
+		$(function(){
+			$('#dg').datagrid({loadFilter:pagerFilter}).datagrid('loadData', getData()); 
+			//testAddAcc();
+		});
+		
+		function testAddAcc(t){  
+			 for(var i =0;i<4;i++){  
+				 $('#aa').accordion('add',
+					{
+	                 title: i+"--" + t, 
+	                 selected: i==0?true:false,
+	                 content: '<div style="padding:10px">'+  getItem() +'</div>',
+	             });
+			 }  
+		}
+		
+		function getItem(){
+			 var html = "";
+			 for(var i =0;i<10;i++){ 
+				 html += ' <div ><table><tr><td><img src="../themes/icons/help.png"> </td><td><a href="javascript:openMeun(\''+ i +'\')">希望能够'+ i +'</a></td></tr></table></div> ';				 
+			 }
+			 return html;
+		}
+		
+		function openMeun(args){
+			//myopen();
+			addTab("TTTT", "tab.html"); 
+			return false;
+		}
+		
+	</script>
+</body>
+</html>
