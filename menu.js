@@ -6,6 +6,6 @@ var menu =
 					"后台":[
 					      {"name":"server_web1","url":"http://cs827290456.github.io/html/ui/LUMINO-ADMIN/index.html"},
 					      {"name":"server_web2","url":"http://cs827290456.github.io/html/ui/server_web/index.html"}], 
-					 "前台":[{"name":"61","url":""},{"name":"31","url":""}] },
+					 "前台":[{"name":"微乐购","url":"http://cs827290456.github.io/html/ui/wlg/index.html"},{"name":"31","url":""}] },
 				"手机系统":{  "后台":[{"name":"13","url":""},{"name":"16","url":""}], "前台":[{"name":"51","url":""},{"name":"41","url":""}] }		
 }
