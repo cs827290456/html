@@ -1,0 +1,286 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+ <HEAD>
+<head>  
+	<meta name="renderer" content="webkit">
+	<meta charset="utf-8">
+	<title></title>  
+	<script src="js/jquery-1.11.0.js"></script>  
+	<script src="js/bootstrap.min.js"></script>   
+	<script src="js/api.js"></script>   
+	<link href="css/bootstrap.min.css" rel="stylesheet">	
+	<link href="css/sb-admin-2.css" rel="stylesheet" type="text/css">
+	<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">  
+	<script type="text/javascript"> 
+	</script> 
+	
+	<style type="text/css">  
+	.table>thead>tr>th,.table>tbody>tr>th,.table>tfoot>tr>th,.table>thead>tr>td,.table>tbody>tr>td,.table>tfoot>tr>td {
+		padding: 5px;
+		line-height: 1.42857143;
+		vertical-align: top;
+		border-top: 1px solid #ddd
+	} 
+	.page-header {
+	    padding-bottom: 9px;
+	    margin: 20px 0 20px;
+	    border-bottom: 1px solid #eee;
+	} 
+	</style>
+</head> 
+<body> 
+	<div id="wrapper">
+		<!-- Navigation -->
+		<nav class="navbar navbar-default navbar-static-top" role="navigation"
+			style="margin-bottom: 0;min-height: 50px;"> 
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<span class="navbar-brand" href="#" style="font-size:28px">接口文档v1.0</span><a class="navbar-brand" href="javascript:alert('暂未开放')"><h4>下载接口代码</h4></a> 
+			</div>
+			<!-- /.navbar-top-links -->
+			<div class="navbar-default sidebar" role="navigation">
+				<div class="sidebar-nav navbar-collapse">
+					<ul class="nav" id="side-menu"> 
+						<SCRIPT LANGUAGE="JavaScript">
+						<!--
+							var nullstr = "找不到数据!!!";
+							var i = 0;
+							var key = "";
+							//alert(api["接口1"]) 
+							for(item in api){  
+								if(i == 0){
+									key = item;
+								} 
+								document.write('<li>');
+								document.write('<a id="m_'+ i++ +'" href=javascript:gotoapi("'+ item +'")><img src="css/i.png"> '+ item +'</a>');
+								document.write('</li>');
+							}
+							
+							window.onload=function(){
+								gotoapi(key);
+							}	
+
+							function getItemInfo(title,value){ 
+								return "<table style='font-size:14px'><tr><td valign='top'>"+ title +"：</td><td>"+ value+"</td></tr></table></p>";
+							}
+
+							function gotoapi(k){
+
+								 $("#ihead").html(k); 
+
+								 var ibody = "";			
+								 if(api[k].接口介绍){
+									 //ibody += "<table><tr><td>接口介绍：</td><td>"+ api[k].接口介绍+"</td></p>";
+									 ibody += getItemInfo("接口介绍", api[k].接口介绍);
+								 }
+								 
+								 if(api[k].接口地址){
+									 //ibody += "接口地址："+ api[k].接口地址+"</p>";
+									  ibody += getItemInfo("接口地址", api[k].接口地址);
+								  }
+								 
+								 if(api[k].支持格式){
+									 //ibody += "支持格式："+ api[k].支持格式+"</p>";
+									 ibody += getItemInfo("支持格式", api[k].支持格式);
+								 }
+								 
+								 if(api[k].请求方式){
+									 //ibody += "请求方式："+ api[k].请求方式+"</p>";
+									 ibody += getItemInfo("请求方式", api[k].请求方式);
+								  }
+								 
+								 if(api[k].请求示例){	 
+									 //ibody += "请求示例："+ api[k].请求示例+"</p>"; 
+									 ibody += getItemInfo("请求示例", api[k].请求示例);
+								 }
+									 
+								 $("#ibody").html(ibody == "" ? nullstr : ibody); 
+								
+								 $("#iqtable").html(getTableInfo(k,'请求参数'));
+								 $("#iftable").html(getTableInfo(k,'返回参数'));
+
+							}
+
+							function getTableInfo(k,t){
+
+							//"请求参数": {"名称":"name","类型":"string","必填":"是","说明":"需要查询的菜谱名...."},							 
+							//"返回参数": 
+								var item;
+								if(t == "请求参数"){
+									item = api[k].请求参数; 
+								}else{
+									item = api[k].返回参数;  
+								} 
+
+								if(!item){
+									return nullstr;
+								}	
+
+								var table = '<table class="table table-hover" border="0" style="font-size: 14px;margin-bottom: 1px" >';
+									table+='<thead>';
+									table+='<tr>';
+										table+='<th width="200">名称</th>'; 
+										table+='<th width="200">类型</th>'; 
+										if(t == "请求参数"){
+											table+='<th width="200">必填</th>';
+										}
+										table+='<th>说明</th> ';
+									table+='</tr>';
+									table+='</thead>';
+						 			table+='<tbody>';
+									
+									for(var i =0 ;i<item.length; i++){ 
+										//var json = item[i]; 
+
+										table+='<tr>';
+										table+='<td>'+ item[i].名称 +'</td>';
+										table+='<td>'+ item[i].类型 +'</td>';
+										if(t == "请求参数"){
+											table+='<td>'+ item[i].必填 +'</td>';
+										}
+										table+='<td>'+ item[i].说明 +'</td>';
+										table+='</tr>';
+									} 
+									table+='</table>'; 
+									return table;
+
+							}
+
+						//-->
+						</SCRIPT> 
+					</ul>
+				</div>
+				<!-- /.sidebar-collapse -->
+			</div>
+			<!-- /.navbar-static-side -->
+		</nav>
+		<div id="page-wrapper">
+			<div class="row">
+				<div class="col-lg-12">
+					<h3 class="page-header"><span id="ihead">热点信息预览</span></h3>
+				</div> 
+			</div>
+			<div class="row" style="min-height:850px;">
+				<div class="col-lg-12">
+					<div class="panel panel-default">
+						<div class="panel-heading" style="font-size: 18px">接口基本信息</div>
+						<!-- /.panel-heading -->
+						<div class="panel-body" id="ibody">							
+						 	接口地址：http://apis.juhe.cn/cook/query.php</p>
+						 	支持格式：json</p>
+						 	请求方式：get/post",</p>
+							请求示例：xxxxxxxxxxxxx",</p>
+						</div>
+						
+						<!-- /.panel-body -->
+					</div>
+					<!-- /.panel -->
+				</div>
+				 
+				 
+				<div class="col-lg-12">
+					<div class="panel panel-default">
+						<div class="panel-heading" style="font-size: 18px">请求参数</div>
+						<!-- /.panel-heading -->
+						<div class="panel-body" id="iqtable">
+						 	<table class="table table-hover" border="0" style="font-size: 14px;margin-bottom: 1px" >
+						 		<thead>
+						 			<tr>
+						 				<th width="200">名称</th> 
+						 				<th width="200">类型</th> 
+						 				<th width="200">必填</th> 
+						 				<th>说明</th> 
+						 			</tr>
+						 		</thead>
+						 		<tbody>
+						 			<tr>
+						 				<td>没有数据</td>
+						 				<td>xxx</td>
+						 				<td>xxx</td>
+						 				<td>xxx</td>
+						 			</tr>
+						 			<tr>
+						 				<td>没有数据</td>
+						 				<td>xxx</td>
+						 				<td>xxx</td>
+						 				<td>xxx</td>
+						 			</tr>
+						 			<tr>
+						 				<td>没有数据</td>
+						 				<td>xxx</td>
+						 				<td>xxx</td>
+						 				<td>xxx</td>
+						 			</tr>
+						 		</tbody>
+						 	</table>
+						</div>
+						<!-- /.panel-body -->
+					</div>
+					<!-- /.panel -->
+				</div>
+				 
+				<div class="col-lg-12">
+					<div class="panel panel-default">
+						<div class="panel-heading" style="font-size: 18px">返回参数</div>
+						<!-- /.panel-heading -->
+						<div class="panel-body" id="iftable">
+						 	<table class="table table-hover" border="0" style="font-size: 14px;margin-bottom: 1px" >
+						 		<thead>
+						 			<tr>
+						 				<th width="200">名称</th> 
+						 				<th width="200">类型</th> 
+						 				<th width="200">必填</th> 
+						 				<th>说明</th> 
+						 			</tr>
+						 		</thead>
+						 		<tbody>
+						 			<tr>
+						 				<td>没有数据</td>
+						 				<td>xxx</td>
+						 				<td>xxx</td>
+						 				<td>xxx</td>
+						 			</tr>
+						 			<tr>
+						 				<td>没有数据</td>
+						 				<td>xxx</td>
+						 				<td>xxx</td>
+						 				<td>xxx</td>
+						 			</tr>
+						 			<tr>
+						 				<td>没有数据</td>
+						 				<td>xxx</td>
+						 				<td>xxx</td>
+						 				<td>xxx</td>
+						 			</tr>
+						 		</tbody>
+						 	</table>
+						</div>
+						<!-- /.panel-body -->
+					</div>
+					<!-- /.panel -->
+				</div>  
+				 
+				 <!-- /.row 
+				 <div class="col-lg-12">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<p align="center">.....</p>
+						</div>
+					</div>
+				</div>
+				 -->
+			</div>
+			<!-- /.row -->
+		</div>
+		<!-- /#page-wrapper -->
+	</div>
+	<!-- /#wrapper -->
+
+
+</body>
+</html>
