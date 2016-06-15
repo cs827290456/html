@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>产品详情</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <link href="css/style.css" type="text/css" rel="stylesheet" />
+    <script src="js/jquery-2.1.3.min.js" type="text/javascript"></script>
+    <script src="js/li-nav.js" type="text/javascript"></script>
+</head>
+
+<body>
+<div id="wrap">
+	<!--details start-->
+    <div class="details-enwrap">
+        <!--details-header start-->
+    	<div class="details-header">
+        	<a class="return-prev-page" href="list.html">
+            	<img src="images/icon/lArraw.png" />
+            </a>
+            <ul class="fr">
+            	<li class="go-cart-btn">
+                	<a href="cart.html">
+                    	<img src="images/icon/icon-cart.png" />
+                    </a>
+                </li>
+            	<!--<li class="fold-nav">
+                	<a href="#">
+                    	<img src="images/icon/fold.png" />
+                    </a>
+                    <ul class="fold-nav-list">
+                    	<li>
+                        	<a href="#">
+                            	<i class="icon qipao"></i>
+                                <cite>消息</cite>
+                            </a>
+                        </li>
+                    	<li>
+                        	<a href="index.html">
+                            	<i class="icon home"></i>
+                                <cite>首页</cite>
+                            </a>
+                        </li>
+                    	<li>
+                        	<a href="#">
+                            	<i class="icon share"></i>
+                                <cite>分享</cite>
+                            </a>
+                        </li>
+                    </ul>
+                </li>-->
+            </ul>
+        </div>
+        <!--details-header end-->
+        
+        <!--swipe-enwrap start-->
+        <div class="swipe-enwrap">
+            <div class="swipe" id="mySwipe">
+                <div class="swipe-wrap">
+                    <div><a href="#"><img class="img-responsive" src="images/6.jpg"></a></div>
+                    <div><a href="#"><img class="img-responsive" src="images/6.jpg"></a></div>
+                    <div><a href="#"><img class="img-responsive" src="images/6.jpg"></a></div>
+                </div>
+            </div>
+            <ul id="position">
+                <li class="cur"></li>
+                <li class=""></li>
+                <li class=""></li>
+            </ul>
+        </div>
+        <!--swipe-enwrap end-->
+        
+        <!--details-panels start-->
+        <div class="details-panels">
+        	<div class="de-top-text">
+            	<p>泉林本色330餐巾纸 本色环保餐泉林本色330餐巾纸 本色环保餐巾纸  AC330 双层纸巾 北京批发泉林本色330餐巾纸 本色环保餐巾纸  AC330 双层纸巾 北京批发巾纸  AC330 双层纸巾 北京批发</p>
+                <a class="fenxian-btn" href="#">
+                	<i class="icon share"></i>
+                	<cite>分享</cite>
+                </a>
+            </div>
+            
+            <div class="de-services-top">
+            	<p class="de-price">￥265.00</p>
+                <p class="or-price">价格：<del>￥270.00</del></p>
+                <ul class="de-services-list">
+                	<li>
+                    	<span>卖家包邮</span>
+                    </li>
+                	<li>
+                    	<span>月销55笔</span>
+                    </li>
+                	<li>
+                    	<span>广东深圳</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="de-services-bt">
+            	<ul class="de-services-list">
+                	<li>
+                    	<span><img src="images/icon/c.png" /><cite>卖家承诺48小时内发货</cite></span>
+                    </li>
+                	<li>
+                    	<span><img src="images/icon/c.png" /><cite>如实描述</cite></span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!--<div class="comment-sort">
+            	<h3>商品评价（1540）</h3>
+                <div class="comment-sort-list">
+                	<a href="javascript:;">很划算（263）</a>
+                	<a href="javascript:;">质量不错（224）</a>
+                	<a href="javascript:;">物流快（100）</a>
+                	<a href="javascript:;">正品（64）</a>
+                	<a href="javascript:;">材质不错（47）</a>
+                	<a href="javascript:;">质量一般（25）</a>
+                </div>
+                
+                <div class="comment-cont">
+                	<div class="comment-item">
+                    	<div class="comment-item-title">
+                        	<span class="photo">
+                            	<img src="images/e.jpg" />
+                            </span>
+                            <cite class="co-user-name">石*匠</cite>
+                        </div>
+                        <div class="comment-text">
+                        	纸质不错，没有异味，包装也很整纸质不错，没有异味，包装也很整纸质不错，没有异味，包装也很整齐。
+                        </div>
+                    </div>
+                </div>
+                
+                <a class="more-comment" href="javascript:;">查看更多评价</a>
+            </div>-->
+        </div>
+        <!--details-panels end-->
+        
+        <div class="details-content">
+        	<h2 class="de-title"><cite>图文详情</cite></h2>
+            <div class="img">
+            	<img src="images/7.jpg" />
+            </div>
+        </div>
+        
+        <script src="js/swipe.js" type="text/javascript"></script>
+        <script type="text/javascript">
+        $(document).ready(function(e) {
+            var bullets = document.getElementById('position').getElementsByTagName('li');
+            var banner = Swipe(document.getElementById('mySwipe'), {
+                auto: 2000,
+                continuous: true,
+                disableScroll:false,
+                callback: function(pos) {
+                    var i = bullets.length;
+                    while (i--) {
+                      bullets[i].className = ' ';
+                    }
+                    bullets[pos].className = 'cur';
+                }
+            });
+        });
+        </script>
+    </div>
+	<!--details end-->
+    
+	<!--buy-action-enwrap end-->
+    <div class="buy-action-enwrap">
+        <div class="buy-action">
+            <a class="l_LinkBuy" href="javascript:;">加入购物车</a>
+            <a class="l_LinkBasket" href="confirm-order.html">立即购买</a>
+        </div>
+    </div>
+	<!--buy-action-enwrap end-->
+    
+</div>
+</body>
+</html>
