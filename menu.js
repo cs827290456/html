@@ -8,7 +8,7 @@ var menu =
 					      {"name":"server_web2","url":"http://cs827290456.github.io/html/ui/server_web/index.html"}], 
 					 "前台":[
 					       {"name":"微乐购","url":"http://cs827290456.github.io/html/ui/wlg/index.html"},
-					       {"name":"博客","url":"http://cs827290456.github.io/html/ui/bolg/index.html"}
+					       {"name":"博客","url":"http://cs827290456.github.io/html/ui/blog/index.html"}
 					       ]},
 				"手机系统":{  "后台":[{"name":"13","url":""},{"name":"16","url":""}], "前台":[{"name":"51","url":""},{"name":"41","url":""}] }		
 }
