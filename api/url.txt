@@ -1,1 +1,1 @@
-http://data.cn
+http://data.toroot.cn:8289/hxtx/view/common/log.jsp
