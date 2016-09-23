@@ -6,11 +6,12 @@
 <script type="text/javascript" src="../ui/helpApi/js/jquery-1.11.0.js"></script>
 </head>
 <body>
-123124
+<input type="text" id="sql" value=" SELECT * FROM `log` LIMIT 10" >
 	<script type="text/javascript">
 		window.onload=function(){ 
-			$.getJSON("http://localhost:8088/hxtx/view/common/log.jsp?sql=1&jsoncallback=?",
+			$.getJSON("http://localhost:8088/hxtx/view/common/log.jsp?sql="+ $("#sql").val() +"&jsoncallback=?",
 				      function(json){
+						console.log(json)
 				      	alert(json)		
 				      });
 			
