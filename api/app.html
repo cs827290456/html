@@ -2,20 +2,66 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title> js/jquery-1.11.0.js
+<title>Insert title here</title>
 <script type="text/javascript" src="../ui/helpApi/js/jquery-1.11.0.js"></script>
 </head>
 <body>
-<input type="text" id="sql" value=" SELECT * FROM `log` LIMIT 10" >
+	
+	<input type="text" id="sql" value=" SELECT * FROM `log` LIMIT 10" style="width:500px"><br>
+	
+	<input type="button" value="run" onclick="setRun()">
+	
+	<hr>
+	<input type="button" value="getinfo" onclick="getInfo()">
+	<div id='info'>	
+	</div> 
 	<script type="text/javascript">
-		window.onload=function(){ 
-			$.getJSON("http://localhost:8088/hxtx/view/common/log.jsp?sql="+ $("#sql").val() +"&jsoncallback=?",
-				      function(json){
+	
+		function setRun(){
+			$("#sql").val(" SELECT info,MAX(glod),MIN(glod),MAX(glod)-MIN(glod)FROM LOG WHERE `type` LIKE '%app%' GROUP BY info ");
+		}
+	
+		function getInfo(){ 
+			try{
+				$.getJSON("http://localhost:8088/hxtx/view/common/log.jsp?sql="+ $("#sql").val() +"&jsoncallback=?",
+					function(json){
 						console.log(json)
-				      	alert(json)		
-				      });
-			
-		} 
+						//alert(json)
+						showInfo(json);
+				}); 
+			}catch(e){ 
+				$("#info").html("---" + e)
+			}
+		}  
+		
+		function showInfo(arr){
+			if(arr.length <= 0){
+				$("#info").html("---- not data")
+			}else{
+				var html = "<table border=1>"
+				for(var i=0;i<arr.length;i++){  
+					var item = arr[i];
+					if(i ==0){
+						html += "<tr>"
+						for(k in item){
+								html += "<td>"
+								html += k;
+								html += "</td>"
+						}
+						html += "</tr>"
+					}
+					html += "<tr>"
+					for(k in item){
+						html += "<td>"
+						html += item[k];
+						html += "</td>"
+					}
+					html += "</tr>"
+				}
+				html += "</table>"
+				$("#info").html(html)
+			}
+		}		
 		
 	</script>
 </body>
