@@ -6,8 +6,16 @@
 <script type="text/javascript" src="../ui/helpApi/js/jquery-1.11.0.js"></script>
 </head>
 <body>
+123124
 	<script type="text/javascript">
-		alert(123)
+		window.onload=function(){ 
+			$.getJSON("http://localhost:8088/hxtx/view/common/log.jsp?sql=1&jsoncallback=?",
+				      function(json){
+				      	alert(json)		
+				      });
+			
+		} 
+		
 	</script>
 </body>
 </html>
