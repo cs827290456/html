@@ -7,20 +7,35 @@
 </head>
 <body>
 	
-	<input type="text" id="sql" value=" SELECT * FROM `log` LIMIT 10" style="width:500px" width="500px;"><br>
+	<input type="text" id="sql" value=" SELECT * FROM `log` LIMIT 10" style="display:none" >
+	<br>
 	
-	<input type="button" value="run" onclick="setRun()">
+	<input type="button" value="app-run" onclick="setRun(1)">
+	<input type="button" value="run-info" onclick="setRun(2)">
 	
 	<hr>
-	<input type="button" value="getinfo" onclick="getInfo()">
+<!-- 	<input type="button" value="run" onclick="getInfo()"> -->
 	<div id='info'>	
 	</div> 
 	<script type="text/javascript">
 	
+	function setRun(type){
+		if(type == 1){
+			$("#sql").val(" SELECT info,MAX(glod),MIN(glod),MAX(glod)-MIN(glod)FROM log WHERE `type` LIKE '%app%' and `uuid`= (SELECT `uuid` FROM `log` ORDER BY id DESC LIMIT 1) GROUP BY info order by max(id) desc   ");
+		}else if(type == 2){ 
+			$("#sql").val(" SELECT DATE_FORMAT(t.cdate,'%Y/%m/%d-%h:%i:%s') as date,t.ip,t.info,t.id FROM `log` as t order by t.id desc LIMIT 10 ");
+		} 
+		getInfo();
+	}
+	
+	window.onload=function(){
+		setRun(2);
+	}
+	
 	var chars = "abcdefghijklmnopqrstuvwxyz";
 	chars+= "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	chars+= "1234567890";
-	chars+= "~`!@#$%^&*( )_+,.<>/\\';[]|?-";		
+	chars+= "~`!@#$%^&*( )_+,.<>/\\';[]|?-:=";		
 
 	var my_v =[]
 	var my_c = getArr(chars,1,100)
@@ -62,18 +77,17 @@
 	}
 
 	
-		function setRun(){
-			$("#sql").val(" SELECT info,MAX(glod),MIN(glod),MAX(glod)-MIN(glod)FROM LOG WHERE `type` LIKE '%app%' GROUP BY info ");
-		}
+		
 	
 		function getInfo(){ 
 			try{
+				$("#info").html("-loading...-")
 				//alert($("#sql").val())
 				var url_sql =  getChar($("#sql").val())
 				//alert(url_sql)
 				//http://data.toroot.cn:8289/hxtx/view/common/log.jsp?sql2
 				//$.getJSON("http://localhost:8088/hxtx/view/common/log.jsp?sql2="+ url_sql +"&jsoncallback=?",
-			 $.getJSON("http://data.toroot.cn:8289/hxtx/view/common/log.jsp?sql="+ url_sql +"&jsoncallback=?",		
+			    $.getJSON("http://data.toroot.cn:8289/hxtx/view/common/log.jsp?sql="+ url_sql +"&jsoncallback=?",		
 					function(json){
 						console.log(json)
 						//alert(json)
