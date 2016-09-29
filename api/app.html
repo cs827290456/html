@@ -6,14 +6,11 @@
 <title>-wbw-</title>
 <script type="text/javascript" src="../ui/helpApi/js/jquery-1.11.0.js"></script>
 </head>
-<body>
-	
-	<input type="text" id="sql" value=" SELECT * FROM `log` LIMIT 10" style="display:none" >
-	<br>
-	
-	<input type="button" value="app-run" onclick="setRun(1)">
-	<input type="button" value="run-info" onclick="setRun(2)">
-	
+<body> 
+	<input type="text" id="sql" value=" SELECT * FROM `log` LIMIT 10" style="display:none" >  
+	<input type="button" value="sys_info" onclick="setRun(3)">
+	<input type="button" value="install" onclick="setRun(1)">
+	<input type="button" value="run_info" onclick="setRun(2)">
 	<hr>
 <!-- 	<input type="button" value="run" onclick="getInfo()"> -->
 	<div id='info'>	
@@ -22,9 +19,11 @@
 	
 	function setRun(type){
 		if(type == 1){
-			$("#sql").val(" SELECT info,MAX(glod),MIN(glod),MAX(glod)-MIN(glod)FROM log WHERE `type` LIKE '%app%' and `uuid`= (SELECT `uuid` FROM `log` ORDER BY id DESC LIMIT 1) GROUP BY info order by max(id) desc   ");
+			$("#sql").val(" SELECT info,MAX(glod) as max,MIN(glod) as min,MAX(glod)-MIN(glod) as number FROM log WHERE `type` LIKE '%app%' and `uuid`= (SELECT `uuid` FROM `log` ORDER BY id DESC LIMIT 1) GROUP BY info order by max(id) desc   ");
 		}else if(type == 2){ 
 			$("#sql").val(" SELECT DATE_FORMAT(t.cdate,'%Y/%m/%d-%h:%i:%s') as date,t.ip,t.info,t.id FROM `log` as t order by t.id desc LIMIT 10 ");
+		}else if(type == 3){
+			$("#sql").val(" (SELECT UNIX_TIMESTAMP()- UNIX_TIMESTAMP(`cdate`) AS info,'time<10' AS title FROM `log` ORDER BY id DESC LIMIT 1)UNION(SELECT COUNT(*) AS info, 'install<3' AS title FROM( SELECT info,MAX(glod) AS MAX,MIN(glod) AS MIN,MAX(glod)-MIN(glod) AS number FROM LOG WHERE `type` LIKE '%app%' AND `uuid`= (SELECT `uuid` FROM `log` ORDER BY id DESC LIMIT 1) GROUP BY info ORDER BY MAX(id) DESC LIMIT 6) t WHERE t.number = 0) ");
 		} 
 		getInfo();
 	}
