@@ -11,13 +11,19 @@
 	<input type="button" value="sys_info" onclick="setRun(3)">
 	<input type="button" value="install" onclick="setRun(1)">
 	<input type="button" value="run_info" onclick="setRun(2)">
+	<input type ="checkbox" id="auto"/>
 	<hr>
 <!-- 	<input type="button" value="run" onclick="getInfo()"> -->
 	<div id='info'>	
 	</div> 
-	<script type="text/javascript">
+	<script type="text/javascript"> 
 	
 	function setRun(type){
+		if(type){
+			temp_type = type;
+		}else{
+			type = temp_type;
+		}
 		if(type == 1){
 			$("#sql").val(" SELECT info,MAX(glod) as max,MIN(glod) as min,MAX(glod)-MIN(glod) as number FROM log WHERE `type` LIKE '%app%' and `uuid`= (SELECT `uuid` FROM `log` ORDER BY id DESC LIMIT 1) GROUP BY info order by max(id) desc   ");
 		}else if(type == 2){ 
@@ -27,10 +33,19 @@
 		} 
 		getInfo();
 	}
-	
-	window.onload=function(){
+	var temp_type = 2;
+	window.onload=function(){ 
 		setRun(2);
+		window.setInterval("autoGetInfo()",3000);
 	}
+	
+	function autoGetInfo(){
+		var bischecked=$('#auto').is(':checked');
+		if(bischecked){
+			setRun(); 
+		}
+	}
+	
 	
 	var chars = "abcdefghijklmnopqrstuvwxyz";
 	chars+= "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
