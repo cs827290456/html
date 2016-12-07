@@ -1,0 +1,6 @@
+家里的笔记本 
+开发工具   wbw,nox
+工程名字： nox      D:\wbw\Nox\Nox
+生成的应用：nox_apk	D:\cs\project2\Nox_apk 
+wsw_p_ftl			D:\cs\project2\wsw_p_ftl
+wsw_p2.0			D:\cs\project2\wsw_p2.0
