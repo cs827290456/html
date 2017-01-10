@@ -1,6 +1,7 @@
-¼ÒÀïµÄ±Ê¼Ç±¾ 
-¿ª·¢¹¤¾ß   wbw,nox
-¹¤³ÌÃû×Ö£º nox      D:\wbw\Nox\Nox
-Éú³ÉµÄÓ¦ÓÃ£ºnox_apk	D:\cs\project2\Nox_apk 
+å®¶é‡Œçš„ç¬”è®°æœ¬ 
+å¼€å‘å·¥å…·   wbw,nox
+å·¥ç¨‹åå­—ï¼š nox      D:\wbw\Nox\Nox
+ç”Ÿæˆçš„åº”ç”¨ï¼šnox_apk	D:\cs\project2\Nox_apk 
 wsw_p_ftl			D:\cs\project2\wsw_p_ftl
 wsw_p2.0			D:\cs\project2\wsw_p2.0
+test 
