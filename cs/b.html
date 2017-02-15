@@ -8,13 +8,13 @@
  <SCRIPT LANGUAGE="JavaScript">
  
 	var p = new Array();
-	function user(key,name,bdate){
+	function user(key,name,bdate,isNotBrithday){
 		this.key = key;
 		this.name = name;
 		this.bdate = bdate;
 		var s = bdate.split("-");
-		this.year = parseInt(s[0]);
-
+		this.year = parseInt(s[0]); 
+		
 		var x = s[1]
 		if(x.substring(0,1) == "0"){			
 			this.month = parseInt(x.substring(1,2));
@@ -28,6 +28,10 @@
 		}else{
 			this.day = parseInt(s[2]);
 		}		
+		
+		if(isNotBrithday){
+			this.isNotBrithday = true;
+		}
 	}
 
 
@@ -209,7 +213,11 @@ window.onload=function(){
 					if(data!=""){
 						data += "<br>"
 					}
-					data += p[j].key+"<br><font color='#FF0000'><B>" + (year-p[j].year) +"</B></font>岁"
+					if(p[j].isNotBrithday){
+						data += "<br><font color='#FF0000'><B>" + p[j].key +"</B></font>"
+					}else{ 
+						data += p[j].key+"<br><font color='#FF0000'><B>" + (year-p[j].year) +"</B></font>岁"
+					}
 				}
 			}
 			if(data==""){
