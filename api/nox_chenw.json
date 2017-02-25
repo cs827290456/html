@@ -1,0 +1,25 @@
+{	 
+	"doc1":"总量/安装/暂停",
+	"run":[
+				["08:01","50,5,2"],
+				["12:02","60,6,3"],
+				["00:04","50,5,30"],
+		  ], 
+	"doc2":"总量/安装数",
+	"random_pc_number":1,	
+	"random_pc_install":1,	
+
+	"doc3":"节日:总量/安装数",
+	"random_jr_number":1,	
+	"random_jr_install":1,	 
+	
+	"install_bfb":0.2,
+	"install_bfb_doc":"历史安装信息比",
+	
+	"apks":
+	[
+		["wp-7a8d056836e6cb67743205558675de2a-cw-2017-02-22.apk",4,"cw"],
+		["wp-7a8d056836e6cb67743205558675de2a-cw-2017-02-22.apk",4,"cw"] 
+	],
+	"apkdos":"[wp_id,安装数量比,备注]" 
+}
