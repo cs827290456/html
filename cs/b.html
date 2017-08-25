@@ -776,9 +776,11 @@ function init(){
    var d = new Date();                           // 创建 Date 对象。
    year = d.getFullYear();
    var bday = GetLunarDay(yy,mm,dd);
-month = bday[0];//d.getMonth() + 1;
+   month = bday[0];//d.getMonth() + 1;
    day =  bday[1]; d.getDate(); 
    month_day = getBmonthDay();
+   
+   console.log(bday + "" + month)
 }
 
 
